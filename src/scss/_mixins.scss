@@ -1,0 +1,20 @@
+@mixin container {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 21%;
+  @media (max-width: 767px) {
+    padding: 0 12%;
+  }
+}
+
+@mixin basic-style-block($color) {
+  background-color: $color;
+  padding: 100px 0;
+  @media (max-width: 1199px) {
+    padding: 80px 0;
+  }
+  @media (max-width: 767px) {
+    padding: 60px 0;
+  }
+}
