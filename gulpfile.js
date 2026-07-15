@@ -7,11 +7,11 @@ const browserSync = require("browser-sync").create();
 
 const paths = {
   scss: "src/scss/styles_v2.scss",
-  css: "dist/css",
+  css: "docs/css",
   html: "src/*.html",
   images: "src/images/**/*",
   staticCss: "src/reset.css",
-  dist: "dist",
+  dist: "docs",
 };
 
 function styles() {
@@ -30,7 +30,7 @@ function html() {
 }
 
 function images() {
-  return gulp.src(paths.images).pipe(gulp.dest("dist/images"));
+  return gulp.src(paths.images).pipe(gulp.dest("docs/images"));
 }
 
 function staticCss() {
@@ -40,7 +40,7 @@ function staticCss() {
 function server() {
   browserSync.init({
     server: {
-      baseDir: "./dist",
+      baseDir: "./docs",
     },
   });
 }
@@ -50,7 +50,7 @@ function watchFiles() {
   gulp.watch(paths.html, html);
   gulp.watch(paths.images, images);
   gulp.watch(paths.staticCss, staticCss);
-  gulp.watch("dist/**/*").on("change", browserSync.reload);
+  gulp.watch("docs/**/*").on("change", browserSync.reload);
 }
 
 exports.styles = styles;
